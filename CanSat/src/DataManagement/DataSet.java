@@ -1,8 +1,56 @@
 package DataManagement;
 
-//This class represents the data set we are going to send from the CanSat to the server
-//it will be converted to json using the jackson library
-public class DataSet {
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+//The DataSet class stores the data to be sent to the ground
+//the DataSet consists of a set of data packages
+//each package contains data collected during the same period of time
+public class DataSet{
 	
+	public static DataSet createFromJson(String json) {
+		Gson gson = new Gson();
+		DataSet ret = gson.fromJson(json, DataSet.class);
+		return ret;
+	}
+	
+	private List data = new ArrayList();
+	
+	public void add(DataPackage value) {
+		data.add(value);
+	}
+	
+	public void add(DataPackage[] values) {
+		for(int i=0;i<values.length;i++) {
+			data.add(values[i]);
+		}
+			
+	}
+	
+	//returns the data in json format
+	public String getJson() {
+		Gson gson = new Gson();
+		
+		return gson.toJson(this);
+	}
+	
+	public String getJsonPretty() {
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		
+		return gson.toJson(this);
+	}
 }
+
+
+
+
+
+
+
+
+
 
