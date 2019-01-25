@@ -2,21 +2,60 @@ package GUI;
 
 import java.util.concurrent.Callable;
 
-import processing.core.*;
+import processing.core.PApplet;
+import processing.core.PFont;
+import processing.core.PVector;
 
-public class Label implements Element{
+public class Button implements Element{
 	private PApplet parent;
-	private String text="Hello World!";
+	private String text="Click me!";
 	private float x=0,y=0;
 	private float width=100,height=50;
 	private int tr=255,tg=0,tb=0;
 	private int br=255,bg=255,bb=255;
 	private PFont font;
-	private Callable hoverAction;
+	private boolean mouseWasOver = false;
+	private Callable hoverAction = new Callable<Integer>() {
+		public Integer call() {
+			
+			if(mouseWasOver)
+				return 0;
+			
+			tr = 255-tr;
+			tg = 255-tg;
+			tb = 255-tb;
+			
+			br = 255-br;
+			bg = 255-bg;
+			bb = 255-bb;
+			
+			mouseWasOver = true;
+			return 0;
+		}
+	};
 	private Callable clickAction;
-	private Callable leaveAction;
+	private Callable leaveAction = new Callable<Integer>() {
+		public Integer call() {
+			
+			if(!mouseWasOver)
+				return 0;
+			
+			
+			tr = 255-tr;
+			tg = 255-tg;
+			tb = 255-tb;
+			
+			br = 255-br;
+			bg = 255-bg;
+			bb = 255-bb;
+			
+			mouseWasOver = false;
+			
+			return 0;
+		}
+	};
 	
-	public Label(PApplet parent) {
+	public Button(PApplet parent) {
 		this.parent = parent;
 		font = parent.createFont("Arial", 16);
 	}

@@ -11,6 +11,7 @@ public interface Element {
 	
 	public void onHoverAction(Callable<Integer> action);
 	public void onClickAction(Callable<Integer> action);
+	public void onLeaveAction(Callable<Integer> action);
 	
 	public void setText(String str);
 	public void setPosition(float x,float y);

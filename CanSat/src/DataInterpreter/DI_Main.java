@@ -4,12 +4,20 @@ import processing.core.*;
 import processing.serial.*;
 import cc.arduino.*;
 
+import java.util.concurrent.Callable;
+
+import GUI.*;
+
 public class DI_Main extends PApplet{
 
 	//The code below is just for testing purposes
-	//This is an example of how threading can be used on arduino
 	
-	Arduino arduino;
+	private Window window;
+	private Viewport viewport;
+	private Button addAngle;
+	private Button subtractAngle;
+	private Label angleLbl;
+	private float angle = 0;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -17,50 +25,60 @@ public class DI_Main extends PApplet{
 	}
 	
 	public void settings() {
-		size(300,300);
+		size(600,400,P3D);
 	}
 	
 	public void setup() {
-		fill(120,20,50);
+		window = new Window(this);
+		viewport = new Viewport(this,400,300,10,10);
+		viewport.setBackColor(255, 0, 0);
+		addAngle = new Button(this);
+		subtractAngle = new Button(this);
 		
-		System.out.println(Arduino.list());
+		addAngle.setPosition(450, 50);
+		addAngle.setText("Add");
+		subtractAngle.setPosition(450,100);
+		subtractAngle.setText("Subtract");
 		
-		arduino = new Arduino(this,Arduino.list()[0],57600);
-		arduino.pinMode(13, Arduino.OUTPUT);
-		arduino.pinMode(2, Arduino.OUTPUT);
-		arduino.pinMode(3, Arduino.OUTPUT);
+		addAngle.onClickAction(new Callable<Integer>() {
+			public Integer call() {
+				angle+=0.1f;
+				return 0;
+			}
+		});
 		
-		thread("blinkLed2");
-		thread("blinkLed3");
+		subtractAngle.onClickAction(new Callable<Integer>() {
+			public Integer call() {
+				angle-=0.1f;
+				return 0;
+			}
+		});
+		
+		window.addViewport(viewport);
+		window.addElement(addAngle);
+		window.addElement(subtractAngle);
 	}
 	
 	public void draw() {
 		
 		
-		arduino.digitalWrite(13,Arduino.HIGH);
+		viewport.addDrawAction(new Callable<Integer>() {
+			public Integer call() {
+				float fov = PI/3.0f; 
+			    float cameraZ = (300/2.0f) / tan(fov/2.0f); 
+			    viewport.getObject().noFill();
+			    viewport.getObject().perspective(fov, (float)(400/300), cameraZ/2.0f, cameraZ*2.0f);
+			    viewport.getObject().translate(400/2, 300/2, -10);
+			    viewport.getObject().rotateX(-PI/6); 
+			    viewport.getObject().rotateY(angle); 
+			    viewport.getObject().box(160); 
+				return 0;
+			}
+		});
+		
+		window.show();
+		
 	}
 	
-	public void blinkLed2() {
-		int initTime = millis();
-		
-		while(millis()-initTime < 5000) {
-			arduino.digitalWrite(2,Arduino.HIGH);
-			delay(500);
-			arduino.digitalWrite(2,Arduino.LOW);
-			delay(500);
-		}
-	}
 	
-	public void blinkLed3() {
-		
-		int initTime = millis();
-		
-		while(millis()-initTime < 5000) {
-			arduino.digitalWrite(3,Arduino.HIGH);
-			delay(500);
-			arduino.digitalWrite(3,Arduino.LOW);
-			delay(500);
-		}
-	}
-
 }
