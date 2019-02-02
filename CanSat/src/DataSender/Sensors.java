@@ -54,7 +54,7 @@ public class Sensors {
 			curM = new MagneticData();
 			int startTime = parent.millis();
 			while(parent.millis()-startTime <= millisToRun) {
-				curM.add((int)(parent.random(100)));
+				//curM.add((int)(parent.random(100)));
 			}
 			MagneticRun = false;
 		}
@@ -67,7 +67,7 @@ public class Sensors {
 			curA = new AccelerationData();
 			int startTime = parent.millis();
 			while(parent.millis()-startTime <= millisToRun) {
-				curA.add((int)(parent.random(100)));
+				//curA.add((int)(parent.random(100)));
 			}
 			AccelerationRun = false;
 		}
@@ -80,7 +80,7 @@ public class Sensors {
 			curT = new TemperatureData();
 			int startTime = parent.millis();
 			while(parent.millis()-startTime <= millisToRun) {
-				curT.add((int)(parent.random(100)));
+				//curT.add((int)(parent.random(100)));
 			}
 			TemperatureRun = false;
 		}
@@ -93,7 +93,7 @@ public class Sensors {
 			curG = new GyroscopeData();
 			int startTime = parent.millis();
 			while(parent.millis()-startTime <= millisToRun) {
-				curG.add((int)(parent.random(100)));
+				//curG.add((int)(parent.random(100)));
 			}
 			GyroscopeRun = false;
 		}

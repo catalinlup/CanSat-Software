@@ -7,7 +7,7 @@ import java.util.List;
 public class GyroscopeData{
 	private List data = new ArrayList();
 	
-	public void add(int value) {
+	public void add(String value) {
 		data.add(value);
 	}
 	public void add(int[] values) {

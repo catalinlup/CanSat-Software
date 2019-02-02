@@ -1,0 +1,579 @@
+{
+  "data": [
+    {
+      "dateCreated": "Feb 2, 2019 11:44:27 AM",
+      "mData": {
+        "data": [
+          "X: -108 Y: -826 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -74 Y: 8219 Z: -33"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -16 Y: 35 Z: 36"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:28 AM",
+      "mData": {
+        "data": [
+          "X: -120 Y: -824 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -96 Y: 8205 Z: -33"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -14 Y: 34 Z: 30"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:28 AM",
+      "mData": {
+        "data": [
+          "X: -111 Y: -831 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -94 Y: 8204 Z: -32"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -15 Y: 34 Z: 31"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:28 AM",
+      "mData": {
+        "data": [
+          "X: -111 Y: -823 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -62 Y: 8199 Z: -33"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -14 Y: 34 Z: 37"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:29 AM",
+      "mData": {
+        "data": [
+          "X: -101 Y: -827 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -80 Y: 8201 Z: -33"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -14 Y: 35 Z: 39"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:30 AM",
+      "mData": {
+        "data": [
+          "X: -111 Y: -831 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -94 Y: 8204 Z: -32"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -15 Y: 34 Z: 31"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:30 AM",
+      "mData": {
+        "data": [
+          "X: -100 Y: -824 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -73 Y: 8201 Z: -32"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -14 Y: 35 Z: 36"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:31 AM",
+      "mData": {
+        "data": [
+          "X: -107 Y: -825 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -81 Y: 8204 Z: -34"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -18 Y: 34 Z: 37"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:32 AM",
+      "mData": {
+        "data": [
+          "X: -111 Y: -831 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -94 Y: 8204 Z: -32"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -15 Y: 34 Z: 31"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:32 AM",
+      "mData": {
+        "data": [
+          "X: -107 Y: -821 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -77 Y: 8190 Z: -32"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -14 Y: 35 Z: 35"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:33 AM",
+      "mData": {
+        "data": [
+          "X: -112 Y: -824 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -102 Y: 8209 Z: -32"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -13 Y: 34 Z: 40"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:34 AM",
+      "mData": {
+        "data": [
+          "X: -111 Y: -831 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -94 Y: 8204 Z: -32"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -15 Y: 34 Z: 31"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:34 AM",
+      "mData": {
+        "data": [
+          "X: -109 Y: -823 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -72 Y: 8203 Z: -33"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -18 Y: 35 Z: 35"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:35 AM",
+      "mData": {
+        "data": [
+          "X: -102 Y: -820 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -87 Y: 8196 Z: -32"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -15 Y: 33 Z: 30"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:36 AM",
+      "mData": {
+        "data": [
+          "X: -111 Y: -831 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -94 Y: 8204 Z: -32"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -15 Y: 34 Z: 31"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:36 AM",
+      "mData": {
+        "data": [
+          "X: -106 Y: -824 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -145 Y: 8210 Z: -33"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -16 Y: 36 Z: 38"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:37 AM",
+      "mData": {
+        "data": [
+          "X: -107 Y: -819 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -94 Y: 8210 Z: -31"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -13 Y: 33 Z: 41"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:39 AM",
+      "mData": {
+        "data": [
+          "X: -111 Y: -831 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -94 Y: 8204 Z: -32"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -15 Y: 34 Z: 31"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:39 AM",
+      "mData": {
+        "data": [
+          "X: -107 Y: -829 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -70 Y: 8201 Z: -33"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -16 Y: 34 Z: 37"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:40 AM",
+      "mData": {
+        "data": [
+          "X: -93 Y: -823 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -53 Y: 8237 Z: -33"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -13 Y: 35 Z: 39"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:41 AM",
+      "mData": {
+        "data": [
+          "X: -111 Y: -831 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -94 Y: 8204 Z: -32"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -15 Y: 34 Z: 31"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:41 AM",
+      "mData": {
+        "data": [
+          "X: -106 Y: -816 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -78 Y: 8215 Z: -34"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -16 Y: 33 Z: 40"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:42 AM",
+      "mData": {
+        "data": [
+          "X: -102 Y: -820 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -88 Y: 8208 Z: -32"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -16 Y: 35 Z: 32"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:43 AM",
+      "mData": {
+        "data": [
+          "X: -111 Y: -831 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -94 Y: 8204 Z: -32"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -15 Y: 34 Z: 31"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    },
+    {
+      "dateCreated": "Feb 2, 2019 11:44:43 AM",
+      "mData": {
+        "data": [
+          "X: -101 Y: -833 Z: \n"
+        ]
+      },
+      "aData": {
+        "data": [
+          "X: -67 Y: 8222 Z: -43"
+        ]
+      },
+      "gData": {
+        "data": [
+          "X: -39 Y: 43 Z: 37"
+        ]
+      },
+      "tData": {
+        "data": [
+          "NULL"
+        ]
+      }
+    }
+  ]
+}

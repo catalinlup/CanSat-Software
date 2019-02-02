@@ -17,6 +17,7 @@ import processing.core.PApplet;
 //the entry point for the program running on the CanSat
 public class DS_Main extends PApplet{
 
+	private KeyLogger logger;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -30,14 +31,14 @@ public class DS_Main extends PApplet{
 	public void setup() {
 		Sensors.parent = this;
 		
-		
+		logger = new KeyLogger(this);
 		
 		
 	}
 	
 	
 	public void draw() {
-		
+		logger.Run();
 	}
 
 }
