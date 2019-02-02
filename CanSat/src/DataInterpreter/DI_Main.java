@@ -66,18 +66,7 @@ public class DI_Main extends PApplet{
 				viewport.getObject().rotateY(i);
 				viewport.getObject().rotateZ(i);
 				
-				int sides = 10;
-				
-				float angle = 360 / sides;
-			    beginShape();
-			    for (int i = 0; i < sides; i++) {
-			        float x = cos( radians( i * angle ) ) * r;
-			        float y = sin( radians( i * angle ) ) * r;
-			        vertex( x, y );        
-			    }
-			    endShape(CLOSE);
-				
-				//viewport.getObject().box(100);
+				viewport.getObject().box(100);
 				viewport.getObject().popMatrix();
 				
 				return 0;
