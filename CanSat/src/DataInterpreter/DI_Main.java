@@ -13,11 +13,14 @@ public class DI_Main extends PApplet{
 	//The code below is just for testing purposes
 	
 	private Window window;
-	private Viewport viewport;
-	private Button addAngle;
-	private Button subtractAngle;
-	private Label angleLbl;
-	private float angle = 0;
+	private Viewport viewportGraph1;
+	private Viewport viewportGraph2;
+	private PApplet p = this;
+
+	private Graph g;
+	private double[][] data1;
+	private double[][] data2;
+	double fraction;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -25,53 +28,59 @@ public class DI_Main extends PApplet{
 	}
 	
 	public void settings() {
-		size(600,400,P3D);
+		size(1000,1000,P3D);
 	}
 	
 	public void setup() {
 		window = new Window(this);
-		viewport = new Viewport(this,400,300,10,10);
-		viewport.setBackColor(255, 0, 0);
-		addAngle = new Button(this);
-		subtractAngle = new Button(this);
+		window.setBackColor(255, 255, 255);
 		
-		addAngle.setPosition(450, 50);
-		addAngle.setText("Add");
-		subtractAngle.setPosition(450,100);
-		subtractAngle.setText("Subtract");
+		fraction = 0.00001;
+	    data1 = new double[(int)(100 * (1 / fraction))][2];
+	    
+	    for(double i = 0; i * (1 / fraction) < data1.length; i += fraction) {
+	    		data1[(int)(i * (1 / fraction))][0] = i * 10;
+	    		data1[(int)(i * (1 / fraction))][1] = i * (i / 2);
+	    }
+	    
+	    data2 = new double[(int)(100 * (1 / fraction))][2];
+	    
+	    for(double i = 0; i * (1 / fraction) < data2.length; i += fraction) {
+	    		data2[(int)(i * (1 / fraction))][0] = i * 5;
+	    		data2[(int)(i * (1 / fraction))][1] = Math.sqrt(i) * 10;
+	    }
 		
-		addAngle.onClickAction(new Callable<Integer>() {
-			public Integer call() {
-				angle+=0.1f;
-				return 0;
-			}
-		});
+		viewportGraph1 = new Viewport(this, 500, 500, 10, 10);
+		viewportGraph1.setBackColor(255, 0, 0);
 		
-		subtractAngle.onClickAction(new Callable<Integer>() {
-			public Integer call() {
-				angle-=0.1f;
-				return 0;
-			}
-		});
+		viewportGraph2 = new Viewport(this, 400, 300, 520, 10);
+		viewportGraph2.setBackColor(255, 0, 0);
 		
-		window.addViewport(viewport);
-		window.addElement(addAngle);
-		window.addElement(subtractAngle);
+		window.addViewport(viewportGraph1);
+		window.addViewport(viewportGraph2);
 	}
 	
 	public void draw() {
-		
-		
-		viewport.addDrawAction(new Callable<Integer>() {
+		viewportGraph1.addDrawAction(new Callable<Integer>() {
 			public Integer call() {
-				float fov = PI/3.0f; 
-			    float cameraZ = (300/2.0f) / tan(fov/2.0f); 
-			    viewport.getObject().noFill();
-			    viewport.getObject().perspective(fov, (float)(400/300), cameraZ/2.0f, cameraZ*2.0f);
-			    viewport.getObject().translate(400/2, 300/2, -10);
-			    viewport.getObject().rotateX(-PI/6); 
-			    viewport.getObject().rotateY(angle); 
-			    viewport.getObject().box(160); 
+			    int[] limit = new int[2];
+			    limit[0] = 10;
+			    limit[1] = 10;
+			    
+			    g = new Graph(viewportGraph1.getWidth(), viewportGraph1.getHeight(), limit, limit, data1, fraction,viewportGraph1);
+			    g.drawGraph(p);
+				return 0;
+			}
+		});
+		
+		viewportGraph2.addDrawAction(new Callable<Integer>() {
+			public Integer call() {
+			    int[] limit = new int[2];
+			    limit[0] = 10;
+			    limit[1] = 10;
+			    
+			    g = new Graph(viewportGraph2.getWidth(), viewportGraph2.getHeight(), limit, limit, data2, fraction,viewportGraph2);
+			    g.drawGraph(p);
 				return 0;
 			}
 		});
