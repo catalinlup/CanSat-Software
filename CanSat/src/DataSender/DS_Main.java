@@ -1,6 +1,7 @@
 package DataSender;
 
 import java.io.IOException;
+import processing.serial.*;
 import java.io.PrintWriter;
 import java.util.concurrent.Callable;
 
@@ -29,6 +30,7 @@ public class DS_Main extends PApplet{
 	}
 	
 	public void setup() {
+		
 		Sensors.parent = this;
 		
 		logger = new KeyLogger(this);

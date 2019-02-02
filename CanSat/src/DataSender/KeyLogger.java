@@ -8,6 +8,7 @@ import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 
 import DataManagement.*;
 
@@ -20,7 +21,12 @@ public class KeyLogger {
 	
 	public KeyLogger(PApplet parent) {
 		this.parent = parent;
-		port = new Serial(parent,Serial.list()[0],9600);
+		parent.println(Serial.list());
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Type port: ");
+		int i = reader.nextInt();
+		System.out.println(Serial.list()[i]);
+		port = new Serial(parent,Serial.list()[i],9600);
 		port.bufferUntil('\n');
 		dataSet = new DataSet();
 	}
@@ -36,7 +42,7 @@ public class KeyLogger {
 		if(port.available() > 0) {
 			String inByte = port.readStringUntil('\n');
 			if(inByte!=null) {
-				//parent.println(inByte);
+				parent.println(inByte);
 				String[] parts = inByte.split(";");
 				if(parts.length < 10)
 					return;
