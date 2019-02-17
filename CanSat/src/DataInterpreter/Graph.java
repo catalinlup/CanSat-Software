@@ -11,13 +11,13 @@ public class Graph {
 	private int[] xLimits;
 	private int[] yLimits;
 	private double[][] data;
-	double fraction;
+
 	private Viewport vp;
 	private PApplet parent;
 	
 	private int offset = 20;
 	
-	public Graph(int x, int y, int width, int height, int[] xLimits, int[] yLimits, double[][] data, double fraction, PApplet parent) {
+	public Graph(int x, int y, int width, int height, int[] xLimits, int[] yLimits, double[][] data, PApplet parent) {
 		this.parent = parent;
 		this.vp = new Viewport(parent, width, height, x, y);
 		this.width = width;
@@ -25,7 +25,6 @@ public class Graph {
 		this.xLimits = xLimits;
 		this.yLimits = yLimits;
 		this.data = data;
-		this.fraction = fraction;
 	}
 	
 	public Viewport getViewport() {
@@ -33,6 +32,12 @@ public class Graph {
 	}
 	
 	public void drawGraph(PApplet p) {
+		//double thetaX = (width - 2 * offset) / xLimits[1];
+		//double thetaY = (height - 2 * offset) / yLimits[1];
+		
+		double thetaX = 1;
+		double thetaY = 1;
+		
 		vp.addDrawAction(new Callable<Integer>(){
 			public Integer call() {
 				vp.getObject().fill(255);
@@ -41,18 +46,35 @@ public class Graph {
 				vp.getObject().rect(offset, offset, 1, height - 2 * offset);
 				vp.getObject().rect(offset, height - offset, width - 2 * offset, 1);
 				
-				/*PFont font = new PFont();
+				PFont font = new PFont();
 				font = p.createFont("Arial", 16);
-				vp.getObject().textFont(font, 36);
+				vp.getObject().textFont(font, 10);
 				vp.getObject().fill(0);
-				vp.getObject().text("hello world", 300, 300);*/
+				vp.getObject().text(xLimits[0], offset, height - offset + 10);
+				vp.getObject().text(xLimits[1], width - offset - 10, height - offset + 10);
 				
-				for(double i = 0; i * (1 / fraction) < data.length; i++) {
-					vp.getObject().rect((int)(offset + data[(int)(i * (1 / fraction))][0]), (int)(vp.getHeight() - offset - data[(int)(i * (1 / fraction))][1]), 1, 1);
+				vp.getObject().text(yLimits[0], 14, height - offset);
+				vp.getObject().text(yLimits[1], offset, 16);
+				
+				vp.getObject().noFill();
+				vp.getObject().stroke(255, 0, 0);
+				
+				for(int i = 0; i < data.length - 1; i++) {
+					vp.getObject().line((int)(offset + data[i][0] * thetaX), 
+							(int)(vp.getHeight() - offset - data[i][1] * thetaX), 
+							(int)(offset + data[i + 1][0] * thetaY),
+							(int)(vp.getHeight() - offset - data[i + 1][1] * thetaY));
 				}
-				
 				return 0;
 			}
 		});
+	}
+	
+	public double[][] getData() {
+		return data;
+	}
+
+	public void setData(double[][] data) {
+		this.data = data;
 	}
 }
