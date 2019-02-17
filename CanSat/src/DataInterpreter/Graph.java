@@ -32,12 +32,6 @@ public class Graph {
 	}
 	
 	public void drawGraph(PApplet p) {
-		//double thetaX = (width - 2 * offset) / xLimits[1];
-		//double thetaY = (height - 2 * offset) / yLimits[1];
-		
-		double thetaX = 1;
-		double thetaY = 1;
-		
 		vp.addDrawAction(new Callable<Integer>(){
 			public Integer call() {
 				vp.getObject().fill(255);
@@ -59,11 +53,14 @@ public class Graph {
 				vp.getObject().noFill();
 				vp.getObject().stroke(255, 0, 0);
 				
+				double thetaX = (width - 2 * offset) / xLimits[1];
+				double thetaY = (height - 2 * offset) / yLimits[1];
+				
 				for(int i = 0; i < data.length - 1; i++) {
-					vp.getObject().line((int)(offset + data[i][0] * thetaX), 
-							(int)(vp.getHeight() - offset - data[i][1] * thetaX), 
-							(int)(offset + data[i + 1][0] * thetaY),
-							(int)(vp.getHeight() - offset - data[i + 1][1] * thetaY));
+					vp.getObject().line((int)(offset + data[i][0] * (width - 2 * offset) / xLimits[1]), 
+							(int)(vp.getHeight() - offset - data[i][1] * (height - 2 * offset) / yLimits[1]), 
+							(int)(offset + data[i + 1][0] * (width - 2 * offset) / xLimits[1]),
+							(int)(vp.getHeight() - offset - data[i + 1][1] * (height - 2 * offset) / yLimits[1]));
 				}
 				return 0;
 			}
