@@ -8,6 +8,7 @@ import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Formatter;
 import java.util.Scanner;
 
 import DataManagement.*;
@@ -43,18 +44,18 @@ public class KeyLogger {
 			String inByte = port.readStringUntil('\n');
 			if(inByte!=null) {
 				parent.println(inByte);
+				inByte = inByte.replace("\n","");
 				String[] parts = inByte.split(";");
 				if(parts.length < 10)
 					return;
 				//parent.println(parts.length);
 				AccelerationData acc = new AccelerationData();
-				acc.add("X: "+parts[1]+" Y: "+parts[2]+" Z: "+parts[3]);
+				acc.add(new XYZValue(parts[1],parts[2],parts[3]));
 				GyroscopeData gyr = new GyroscopeData();
-				gyr.add("X: "+parts[4]+" Y: "+parts[5]+" Z: "+parts[6]);
+				gyr.add(new XYZValue(parts[4],parts[5],parts[6]));
 				MagneticData mg = new MagneticData();
-				mg.add("X: "+parts[7]+" Y: "+parts[8]+" Z: "+parts[9]);
+				mg.add(new XYZValue(parts[7],parts[8],parts[9]));
 				TemperatureData tm = new TemperatureData();
-				tm.add("NULL");
 				DataPackage pk = new DataPackage(mg,acc,gyr,tm);
 				dataSet.add(pk);
 			}
@@ -71,11 +72,14 @@ public class KeyLogger {
 	}
 	
 	public void Save() {
-		String data = dataSet.getJsonPretty();
+		String data = dataSet.getCSV();
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd_HH:mm:ss");
 		Date date = new Date();
 		try {
-			PrintWriter writer = new PrintWriter((new Integer(parent.minute()).toString())+(new Integer(parent.millis()).toString())+".json","UTF-8");
+			StringBuilder build = new StringBuilder();
+			Formatter fmt = new Formatter(build);
+			fmt.format("%s.csv", dateFormat.toString());
+			PrintWriter writer = new PrintWriter(build.toString(),"UTF-8");
 			writer.write(data);
 			writer.close();
 		} catch (FileNotFoundException e) {

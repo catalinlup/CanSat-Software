@@ -43,6 +43,26 @@ public class DataSet{
 		
 		return gson.toJson(this);
 	}
+	
+	//format timeStamp, mX,mY,mZ,aX,aY,aZ,gX,gY,gZ
+	public String getCSV() {
+		
+		String header = "Time,"
+				+ "MagneticX,MagneticY,MagneticZ,"
+				+ "AccelerationX,AcclerationY,AcclerationZ,"
+				+ "GyroscopeX,GyroscopeY,GyroscopeZ";
+		
+		String csvDoc = "";
+		
+		csvDoc+=header+"\n";
+		
+		for(int i=0;i<data.size();i++) {
+			DataPackage pkg = (DataPackage)(data.get(i));
+			csvDoc+=pkg.getCSVRow()+"\n";
+		}
+		
+		return csvDoc;
+	}
 }
 
 

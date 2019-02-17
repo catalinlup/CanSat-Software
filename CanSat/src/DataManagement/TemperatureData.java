@@ -15,4 +15,16 @@ public class TemperatureData{
 			data.add(values[i]);
 		}	
 	}
+	
+	public String getTempAvg() {
+		if(data.size()==0)
+			return "NULL";
+		int avg = 0;
+		for(int i = 0;i<data.size();i++) {
+			avg+=Integer.parseInt((String)(data.get(i)));
+		}
+		avg /= data.size();
+		
+		return Integer.toString(avg);
+	}
 }

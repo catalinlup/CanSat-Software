@@ -17,7 +17,20 @@ import processing.core.PApplet;
 
 //the entry point for the program running on the CanSat
 public class DS_Main extends PApplet{
-
+	
+	static {
+		   
+	    try {
+	        System.load("/home/pi/JavaDLL/libjSSC-2.8.so");
+	        System.out.println("Loaded library");
+	        
+	    } catch (UnsatisfiedLinkError e) {
+	    	System.out.println("Error - Loading library");
+	    	e.printStackTrace();
+	    }
+	}
+	
+	
 	private KeyLogger logger;
 	
 	public static void main(String[] args) {
