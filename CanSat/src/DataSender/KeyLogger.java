@@ -2,9 +2,14 @@ package DataSender;
 import processing.core.*;
 import processing.serial.*;
 
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.io.Writer;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -42,19 +47,29 @@ public class KeyLogger {
 		
 		if(port.available() > 0) {
 			String inByte = port.readStringUntil('\n');
+			int val = 0;
 			if(inByte!=null) {
+				
 				parent.println(inByte);
 				inByte = inByte.replace("\n","");
 				String[] parts = inByte.split(";");
-				if(parts.length < 10)
+				if(parts.length != 9)
 					return;
-				//parent.println(parts.length);
+				try {
+					for(int i = 0;i<parts.length;i++) {
+						Integer.parseInt(parts[i]);
+					}
+				}
+				catch(Exception e){
+					return;
+				}
+				parent.println(parts.length);
 				AccelerationData acc = new AccelerationData();
-				acc.add(new XYZValue(parts[1],parts[2],parts[3]));
+				acc.add(new XYZValue(parts[0],parts[1],parts[2]));
 				GyroscopeData gyr = new GyroscopeData();
-				gyr.add(new XYZValue(parts[4],parts[5],parts[6]));
+				gyr.add(new XYZValue(parts[3],parts[4],parts[5]));
 				MagneticData mg = new MagneticData();
-				mg.add(new XYZValue(parts[7],parts[8],parts[9]));
+				mg.add(new XYZValue(parts[6],parts[7],parts[8]));
 				TemperatureData tm = new TemperatureData();
 				DataPackage pk = new DataPackage(mg,acc,gyr,tm);
 				dataSet.add(pk);
@@ -72,23 +87,17 @@ public class KeyLogger {
 	}
 	
 	public void Save() {
-		String data = dataSet.getCSV();
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd_HH:mm:ss");
+		String[] data = dataSet.getCSV();
+		DateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 		Date date = new Date();
-		try {
-			StringBuilder build = new StringBuilder();
-			Formatter fmt = new Formatter(build);
-			fmt.format("%s.csv", dateFormat.toString());
-			PrintWriter writer = new PrintWriter(build.toString(),"UTF-8");
-			writer.write(data);
-			writer.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		String dtSaved = dateFormat.format(date);
+		PrintWriter writer = parent.createWriter(dtSaved+".csv");
+		for(int i = 0; i< data.length;i++) {
+			System.out.println(data[i]);
+			writer.println(data[i]);
 		}
+		writer.flush();
+		writer.close();
 		parent.println("--> Data Saved");
 	}
 

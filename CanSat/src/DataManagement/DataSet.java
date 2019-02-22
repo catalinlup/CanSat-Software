@@ -21,6 +21,7 @@ public class DataSet{
 	private List data = new ArrayList();
 	
 	public void add(DataPackage value) {
+		//System.out.println(data.size());
 		data.add(value);
 	}
 	
@@ -45,20 +46,21 @@ public class DataSet{
 	}
 	
 	//format timeStamp, mX,mY,mZ,aX,aY,aZ,gX,gY,gZ
-	public String getCSV() {
+	public String[] getCSV() {
 		
 		String header = "Time,"
 				+ "MagneticX,MagneticY,MagneticZ,"
 				+ "AccelerationX,AcclerationY,AcclerationZ,"
 				+ "GyroscopeX,GyroscopeY,GyroscopeZ";
 		
-		String csvDoc = "";
 		
-		csvDoc+=header+"\n";
+		String []csvDoc = new String[data.size()+1];
+		
+		csvDoc[0] = header;
 		
 		for(int i=0;i<data.size();i++) {
 			DataPackage pkg = (DataPackage)(data.get(i));
-			csvDoc+=pkg.getCSVRow()+"\n";
+			csvDoc[i+1]=pkg.getCSVRow();
 		}
 		
 		return csvDoc;
